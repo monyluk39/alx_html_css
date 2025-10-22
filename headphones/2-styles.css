@@ -1,0 +1,37 @@
+/* ===========================
+   OUR RESULTS SECTION
+=========================== */
+.our-results {
+  background: var(--primary-color);
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.our-results .section-subtitle {
+  color: #e0e0e0;
+}
+
+.results-grid {
+  margin-top: 3rem;
+}
+
+.result-card {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.result-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+}
+
+.result-card h3 {
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.result-card p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
