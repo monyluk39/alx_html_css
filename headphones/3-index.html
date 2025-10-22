@@ -1,0 +1,55 @@
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-subtitle">We’d love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+
+      <form class="contact-form" onsubmit="return validateForm(event)">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Simple form validation and animation
+    function validateForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill out all fields.');
+        return false;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+
+      alert('Thank you! Your message has been sent.');
+      document.querySelector('.contact-form').reset();
+      return true;
+    }
+
+    // Fade-in animation when section is visible
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('fade-in');
+      });
+    });
+    document.querySelectorAll('.contact, .our-results, .what-we-do').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
