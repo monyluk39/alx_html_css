@@ -1,0 +1,52 @@
+/* ===== Pentagons for "Our Results" (no images) ===== */
+.pentagon {
+  --size: 110px;                 /* change one place to scale pentagon */
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto 1rem;
+  display: grid;
+  place-items: center;
+  /* pentagon polygon: top, top-right, bottom-right, bottom-left, top-left */
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  background: var(--p-color, rgba(255,255,255,0.1));
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 6px; /* small rounding to soften corners */
+}
+
+/* inner area to center text and allow inner background if needed */
+.pentagon-inner {
+  width: calc(var(--size) * 0.78);
+  height: calc(var(--size) * 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  clip-path: inherit;
+  -webkit-clip-path: inherit;
+}
+
+/* big number inside the pentagon */
+.result-number {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+/* make results look more elevated on hover */
+.result-card:hover .pentagon {
+  transform: translateY(-10px) scale(1.03);
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+/* feel free to adjust font sizing on small screens */
+@media (max-width: 480px) {
+  .pentagon { --size: 86px; }
+  .result-number { font-size: 1.25rem; }
+}
+
+/* variant: colored pentagons (optional) */
+/* usage: style="--p-color: #ffd166" on .pentagon element */
